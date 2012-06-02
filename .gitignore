@@ -1,3 +1,5 @@
+.rvmrc
+.rspec
 # rcov generated
 coverage
 coverage.data

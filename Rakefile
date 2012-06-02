@@ -2,6 +2,7 @@
 
 require 'rubygems'
 require 'bundler'
+
 begin
   Bundler.setup(:default, :development)
 rescue Bundler::BundlerError => e
@@ -17,8 +18,8 @@ Jeweler::Tasks.new do |gem|
   gem.name = "transpose_chords"
   gem.homepage = "http://github.com/patchfx/transpose_chords"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = %Q{Ruby library for transposing chords}
+  gem.description = %Q{Ruby library for transposing chords}
   gem.email = "richard@justaddpixels.com"
   gem.authors = ["Richard Patching"]
   # dependencies defined in Gemfile
@@ -32,12 +33,9 @@ Rake::TestTask.new(:test) do |test|
   test.verbose = true
 end
 
-require 'rcov/rcovtask'
-Rcov::RcovTask.new do |test|
-  test.libs << 'test'
-  test.pattern = 'test/**/test_*.rb'
-  test.verbose = true
-  test.rcov_opts << '--exclude "gems/*"'
+task :simplecov do
+  ENV['COVERAGE'] = "true"
+  Rake::Task['spec'].execute
 end
 
 task :default => :test
