@@ -25,7 +25,8 @@ Gem::Specification.new do |s|
     "Rakefile",
     "VERSION",
     "lib/transpose_chords.rb",
-    "spec/lib/transpose_chords.rb"
+    "spec/lib/transpose_chords.rb",
+    "transpose_chords.gemspec"
   ]
   s.homepage = "http://github.com/patchfx/transpose_chords"
   s.licenses = ["MIT"]
