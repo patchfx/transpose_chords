@@ -1,6 +1,11 @@
 = transpose_chords
 
-Description goes here.
+Ruby library for transposing chords
+
+= Usage
+
+TransposeChords::Chord.transpose(['C','F','Am','G']).to('D')
+=> ['D','G','Bm','A']
 
 == Contributing to transpose_chords
  
@@ -13,7 +18,5 @@ Description goes here.
 * Please try not to mess with the Rakefile, version, or history. If you want to have your own version, or is otherwise necessary, that is fine, but please isolate to its own commit so I can cherry-pick around it.
 
 == Copyright
-
 Copyright (c) 2012 Richard Patching. See LICENSE.txt for
 further details.
-
