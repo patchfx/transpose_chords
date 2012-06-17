@@ -10,19 +10,37 @@ module TransposeChords
 
     def table
       {
-        c: ['C', 'Dm', 'Em', 'F', 'G', 'Am', 'Bdim'],
-        d: ['D', 'Em', 'F#m', 'G', 'A', 'Bm', 'C#dim'],
-        e: ['E', 'F#m', 'G#m', 'A', 'B', 'C#m', 'D#dim'],
-        f: ['F', 'Gm', 'Am', 'Bb', 'C', 'Dm', 'Edim'],
-        g: ['G', 'Am', 'Bm', 'C', 'D', 'Em', 'F#dim'],
-        a: ['A', 'Bm', 'C#m', 'D', 'E', 'F#m', 'G#dim'],
-        b: ['B', 'C#m', 'D#m', 'E', 'F#', 'G#m', 'A#dim']
+        to_key: {
+          c: ['C', 'Dm', 'Em', 'F', 'G', 'Am', 'Bdim'],
+          d: ['D', 'Em', 'F#m', 'G', 'A', 'Bm', 'C#dim'],
+          e: ['E', 'F#m', 'G#m', 'A', 'B', 'C#m', 'D#dim'],
+          f: ['F', 'Gm', 'Am', 'Bb', 'C', 'Dm', 'Edim'],
+          g: ['G', 'Am', 'Bm', 'C', 'D', 'Em', 'F#dim'],
+          a: ['A', 'Bm', 'C#m', 'D', 'E', 'F#m', 'G#dim'],
+          b: ['B', 'C#m', 'D#m', 'E', 'F#', 'G#m', 'A#dim']
+        },
+        to_capo: {
+          c: ['C', 'C#/Db', 'D', 'D#/Eb', 'E', 'F', 'F#/Gb', 'G'],
+          d: ['D', 'D#/Eb', 'E', 'F', 'F#/Gb', 'G', 'Gb/Ab', 'A'],
+          e: ['E', 'F', 'F#/Gb', 'G', 'G#/Ab', 'A', 'A#/Bb', 'B'],
+          f: ['F', 'F#/Gb', 'G', 'G#/Ab', 'A', 'A#/Bb', 'B', 'C'],
+          g: ['G', 'G#/Ab', 'A', 'A#/Bb', 'B', 'C', 'C#/Db', 'D'],
+          a: ['A', 'A#/Bb', 'B', 'C', 'C#/Db', 'D', 'D#/Eb', 'E'],
+          b: ['B', 'C', 'C#/Db', 'D', 'D#/Eb', 'E', 'F', 'F#/Gb']
+        }
       }
     end
 
     def to(key)
       key = table_key_for(key)
-      key_indexes.map { |k| table[key][k] }
+      key_indexes.map { |k| table[:to_key][key][k] }
+    end
+
+    def capo(fret)
+      @keys.map do |k|
+        key = table_key_for(k)
+        table[:to_capo][key][fret]
+      end
     end
 
     def table_key_for(key)
@@ -34,7 +52,7 @@ module TransposeChords
     end
 
     def keys_for(key)
-      Hash[table[key].map.with_index{|*ki| ki}]
+      Hash[table[:to_key][key].map.with_index{|*ki| ki}]
     end
   end
 end

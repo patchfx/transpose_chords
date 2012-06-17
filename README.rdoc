@@ -7,6 +7,9 @@ Ruby library for transposing chords
   TransposeChords::Chord.transpose(['C','F','Am','G']).to('D')
   ['D','G','Bm','A']
 
+  TransposeChords::Chord.transpose(['C','D','G']).capo(2)
+  ['D','E','A']
+
 == Contributing to transpose_chords
 
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet.
