@@ -7,7 +7,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'transpose_chords/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "planvine"
+  spec.name          = "transpose_chords"
   spec.version       = TransposeChords::VERSION
   spec.authors       = ["Richard Patching"]
   spec.email         = ["richard@justaddpixels.com"]
