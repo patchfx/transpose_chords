@@ -13,7 +13,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["richard@justaddpixels.com"]
   spec.description   = %q{Ruby lib for transposing chords}
   spec.summary       = %q{Ruby lib for transposing chords}
-  spec.homepage      = "http://github.com/patchfx/planvine"
+  spec.homepage      = "http://github.com/patchfx/transpose_chords"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
