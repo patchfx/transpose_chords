@@ -13,8 +13,8 @@ module TransposeChords
     end
 
     def to(key)
-      @scale = key.include?('#') ? SHARPS : FLATS
-      intervals = index_of(key) - @scale.index(@keys.first)
+      @scale = key.include?('b') || key.start_with?('F') ? FLATS : SHARPS
+      intervals = index_of(key)
       @keys.map { |k| transpose_chord(k, intervals) }
     end
 

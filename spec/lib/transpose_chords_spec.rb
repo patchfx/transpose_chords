@@ -12,7 +12,7 @@ module TransposeChords
       end
 
       it 'transposes a chord progression to a flat note' do
-        Chord.transpose(['C','F','Am','G']).to('Bb').should == ['Bb','Eb','Gm','F']
+        Chord.transpose(['Cm','F','Am','G']).to('Bb').should == ['Bbm','Eb','Gm','F']
       end
     end
 
