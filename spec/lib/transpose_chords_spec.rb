@@ -6,6 +6,14 @@ module TransposeChords
       it 'transposes a chord progression' do
         Chord.transpose(['C','F','Am','G']).to('D').should == ['D','G','Bm','A']
       end
+
+      it 'transposes a chord progression to a sharp note' do
+        Chord.transpose(['C','F','Am','G']).to('D#').should == ['D#','G#','Cm','A#']
+      end
+
+      it 'transposes a chord progression to a flat note' do
+        Chord.transpose(['C','F','Am','G']).to('Bb').should == ['Bb','Eb','Gm','F']
+      end
     end
 
     context 'transposing with a capo' do
