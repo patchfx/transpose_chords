@@ -22,6 +22,8 @@ module TransposeChords
       @keys.map { |k| transpose_chord(k, fret) }
     end
 
+    private
+
     def transpose_chord(chord, intervals)
       chord.gsub /([A-G][#b]*)/ do
         chord_name, complement = $~.captures
